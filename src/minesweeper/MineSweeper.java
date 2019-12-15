@@ -25,8 +25,8 @@ public class MineSweeper implements KeyListener, MouseListener {
     boolean isGameOver = false;
     boolean isGameOverWin;
     
-    int cols = 20;
-    int rows = 20;
+    static int cols = 20;
+    static int rows = 20;
     int nBombs = 50;
     static final int BOMB = 99;
     
@@ -50,6 +50,10 @@ public class MineSweeper implements KeyListener, MouseListener {
     public static void main(String[] args) {
         // TODO code application logic here
         MineSweeper game = new MineSweeper(); 
+        
+        if (args.length > 0)
+            game.nBombs = Integer.min(cols*rows, Integer.parseInt(args[0]));
+        
         game.setup();
     }
     
